@@ -12,8 +12,8 @@ import {Maincontext} from './components/Maincontext';
 function App() {
   return (
     <div className="App">
-     <Navbar/>
       <Maincontext>
+     <Navbar/>
      <Routes>
       <Route path='/admin' element={<Admin/>}>
         <Route path='del' element={<Delall/>}/>

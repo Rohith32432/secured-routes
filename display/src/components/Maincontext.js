@@ -1,14 +1,17 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-export const context = createContext(null);
+ const context = createContext(null);
 
 export function Maincontext({ children }) {
-  const values = {
-    status: false
-  };
+  const [status,setstaus]=useState(false)
+  useEffect(()=>{
+
+    if(localStorage.getItem('user')!=null)
+        setstaus(true)
+  },[status])
 
   return (
-    <context.Provider value={values}>{children}</context.Provider>
+    <context.Provider value={status}>{children}</context.Provider>
   );
 }
 
