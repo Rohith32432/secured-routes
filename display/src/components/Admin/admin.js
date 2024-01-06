@@ -10,7 +10,7 @@ function Admin() {
   
   return (
     <>
-    { auth?
+    { auth.status?
       <div className="container  d-flex flex-column my-5 gap-3">
         <h3>Admin page</h3>
     
