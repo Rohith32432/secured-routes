@@ -1,8 +1,12 @@
 import React from 'react'
 
+
 function Delall() {
   return (
-    <h1>Delall</h1>
+   <>
+   
+   <h3>delte-page</h3>
+ </>
   )
 }
 
