@@ -8,10 +8,12 @@ import Delall from './components/Admin/delall';
 import Viewall from './components/Admin/Viewall';
 import Status from './components/Admin/Status';
 import Login from './components/Login/Login'
+import {Maincontext} from './components/Maincontext';
 function App() {
   return (
     <div className="App">
      <Navbar/>
+      <Maincontext>
      <Routes>
       <Route path='/admin' element={<Admin/>}>
         <Route path='del' element={<Delall/>}/>
@@ -20,7 +22,7 @@ function App() {
       </Route>
       <Route path='/user' element={<User/>}/>
       <Route path='/login' element={<Login/>}/>
-     </Routes>
+     </Routes></Maincontext>
     </div>
   );
 }

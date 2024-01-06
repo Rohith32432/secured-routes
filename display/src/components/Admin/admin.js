@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import { context, useTest } from '../Maincontext'
 function Admin() {
+  const sample=useContext(context)
+  console.log(sample);
+  const auth=useTest()
+  console.log(auth);
   return (
     <>
       <div className="container  d-flex flex-column my-5 gap-3">
