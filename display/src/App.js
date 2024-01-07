@@ -21,7 +21,9 @@ function App() {
       <Maincontext>
      <Navbar/>
      <main className="column">
+     {process.env.REACT_APP_Domain_Name}
       <h1>Auth0 Login</h1>
+     {process.env.REACT_APP_Domain_Name }  
       {error && <p>Authentication Error</p>}
       {!error && isLoading && <p>Loading...</p>}
       {!error && !isLoading && (
