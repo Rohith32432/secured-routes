@@ -6,7 +6,9 @@ const {users, ROLE}=require('./models/data')
 const {checklogin,roleauth}=require('./basicauth.js')
 const view = require('./middleware/view.js')
 const data=require('./data.js')
+const cors=require('cors')
 server.use(express.json())
+server.use(cors())
 // server.use(setUser)
 server.use('/view', view)
 // main().catch(err => console.log(err));
@@ -28,11 +30,12 @@ server.get('/admin',checklogin,roleauth(ROLE.ADMIN),(req,res)=>{
 server.get('/board',checklogin,(req,res)=>{
   res.send('dashboard page')
 })
-server.get('/validate', (req, res) => {
+server.post('/validate', (req, res) => {
   const pwd=req.body.pwd
   const email=req.body.email
   const chk=data.find(user=>user.email===email && user.password==pwd)
   res.json(chk);
+  console.log(req.body);
 });
 
 

@@ -20,7 +20,7 @@ function App() {
 
       <Maincontext>
      <Navbar/>
-     <main className="column">
+     {/* <main className="column">
      {process.env.REACT_APP_Domain_Name}
       <h1>Auth0 Login</h1>
      {process.env.REACT_APP_Domain_Name }  
@@ -33,7 +33,7 @@ function App() {
           <Profile />
         </>
       )}
-    </main>
+    </main> */}
      <Routes>
       <Route path='/admin' element={<Admin/>}>
         <Route path='del' element={<Delall/>}/>
