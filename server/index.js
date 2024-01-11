@@ -1,3 +1,4 @@
+const fs=require('fs')
 const express=require('express');
 const server=express()
 const moongose=require('mongoose')
@@ -36,6 +37,7 @@ function setUser(req, res, next) {
   }
   next()
 }
+
 server.listen(32432,()=>{
     console.log("server started at 32432");
 })
