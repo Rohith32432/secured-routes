@@ -39,7 +39,9 @@ server.post('/validate', (req, res) => {
 });
 
 
-
+server.get('/viewall',(req,res)=>{
+  res.send(data)
+})
 
 // function setUser(req, res, next) {
 //   const userId = req.body.userid

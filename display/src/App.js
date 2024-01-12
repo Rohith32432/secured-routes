@@ -16,6 +16,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { AdminAuth } from './MiddleWare/Requried';
 function App() {
   const { isLoading, error } = useAuth0();
+
+  
   return (
     <div className="App">
 
