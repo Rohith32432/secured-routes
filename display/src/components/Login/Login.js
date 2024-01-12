@@ -39,7 +39,7 @@ function Login() {
             <input
               type="email"
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleIn putEmail1"
               placeholder="Enter email"
               name="email"
               aria-describedby="emailHelp"

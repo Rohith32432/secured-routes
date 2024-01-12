@@ -21,7 +21,7 @@ function Admin() {
 
         </div>
 
-      </div>:<h1>go login</h1>
+      </div>
 
       <Outlet/>
     </>
