@@ -6,11 +6,11 @@ function Admin() {
 
   const auth=useTest()
 
-  console.log(auth);
+  console.log(auth.status);
   
   return (
     <>
-    { auth.status?
+    
       <div className="container  d-flex flex-column my-5 gap-3">
         <h3>Admin page</h3>
     
@@ -22,7 +22,7 @@ function Admin() {
         </div>
 
       </div>:<h1>go login</h1>
-}
+
       <Outlet/>
     </>
   )

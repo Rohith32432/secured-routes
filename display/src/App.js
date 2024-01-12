@@ -13,6 +13,7 @@ import LoginButton from './Auth0/Loginbtn';
 import LogoutButton from './Auth0/Logoutbtn';
 import Profile from './Auth0/profile';
 import { useAuth0 } from '@auth0/auth0-react';
+import { AdminAuth } from './MiddleWare/Requried';
 function App() {
   const { isLoading, error } = useAuth0();
   return (
@@ -20,26 +21,13 @@ function App() {
 
       <Maincontext>
      <Navbar/>
-     {/* <main className="column">
-     {process.env.REACT_APP_Domain_Name}
-      <h1>Auth0 Login</h1>
-     {process.env.REACT_APP_Domain_Name }  
-      {error && <p>Authentication Error</p>}
-      {!error && isLoading && <p>Loading...</p>}
-      {!error && !isLoading && (
-        <>
-          <LoginButton />
-          <LogoutButton />
-          <Profile />
-        </>
-      )}
-    </main> */}
      <Routes>
+      <Route element={<AdminAuth/>}> 
       <Route path='/admin' element={<Admin/>}>
         <Route path='del' element={<Delall/>}/>
         <Route path='viewall' element={<Viewall/>}/>
         <Route path='staus' element={<Status/>}/>
-      </Route>
+      </Route></Route>
       <Route path='/user' element={<User/>}/>
       <Route path='/login' element={<Login/>}/>
      </Routes></Maincontext>

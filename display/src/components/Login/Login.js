@@ -13,12 +13,18 @@ function Login() {
     const pwd = form.get('pwd');
 
     setData({ email, pwd });
-    localStorage.setItem('user', email);
-    auth.islogged(true);
 
+    
     try {
-      const response = await axios.post('http://localhost:32432/validate', data);
-      console.log(response.data);
+        const response = await axios.post('http://localhost:32432/validate', data);
+        let res=response.data
+        if(res){
+          localStorage.setItem('user', res.email);
+          localStorage.setItem('role',res.role)
+          auth.islogged(true);
+        }
+
+        console.log(response.data);
     } catch (error) {
       console.error('Error sending data:', error);
     }
