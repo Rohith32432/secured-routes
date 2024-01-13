@@ -6,9 +6,9 @@ export const AdminAuth = () => {
     const userRole = localStorage.getItem('role');
   
     if (auth.status && userRole!=='admin') {
-      return <Navigate to="login" />;
+      return <Navigate to="login" /> ;
     }
   
-    return <Outlet />;
+    return  <Outlet/>;
   };
   

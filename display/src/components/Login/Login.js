@@ -29,6 +29,11 @@ function Login() {
       console.error('Error sending data:', error);
     }
   };
+  const handleclick=()=>{
+    localStorage.clear()
+    auth.islogged(false)
+
+  }
 
   return (
     <>
@@ -56,6 +61,9 @@ function Login() {
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
+          </button>
+          <button className="btn btn-primary mx-3" onClick={handleclick}>
+            Logout
           </button>
         </form>
       </div>
