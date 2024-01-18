@@ -5,10 +5,10 @@ export const AdminAuth = () => {
     const auth=useTest()
     const userRole = localStorage.getItem('role');
   
-    if (auth.status && userRole!=='admin') {
-      return <Navigate to="login" /> ;
+    if (auth.status && userRole=='Admin') {
+      return<Outlet/>;
     }
   
-    return  <Outlet/>;
+    return   <Navigate to="login" /> 
   };
   

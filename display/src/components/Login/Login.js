@@ -5,7 +5,7 @@ import axios from 'axios';
 function Login() {
   const [data, setData] = useState({ email: '', pwd: '' });
   const auth = useTest();
-
+  console.log(auth.status);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData(e.target);

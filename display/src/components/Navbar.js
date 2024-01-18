@@ -1,6 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTest } from './Maincontext'
 function Navbar() {
+  const auth=useTest()
+  const handlelogout=()=>{
+   return  auth.status?localStorage.clear():""
+  }
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,7 +31,8 @@ function Navbar() {
       <form className="d-flex">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
       
-     <Link to='/login'> <button className="btn btn-outline-success mx-3" >Login</button></Link>
+     <Link to='/login'> <button className="btn btn-outline-success mx-3" onClick={handlelogout} >
+      {auth.status?'Logout':"Login" }</button></Link>
       </form>
     </div>
   </div>

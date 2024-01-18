@@ -2,7 +2,7 @@
  [
       {
         "name": "admin",
-        "email": "admin@gmail.com",
+        "email": "2100032432cse@gmail.com",
         "role": "Admin",
         "password":123,
         "permissions": "Full access to all features"

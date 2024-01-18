@@ -25,6 +25,7 @@ function App() {
      <Navbar/>
      <Routes>
       <Route element={<AdminAuth/>}> 
+      
       <Route path='/admin' element={<Admin/>}>
         <Route path='del' element={<Delall/>}/>
         <Route path='viewall' element={<Viewall/>}/>

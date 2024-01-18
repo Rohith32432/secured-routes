@@ -27,12 +27,7 @@ function Viewall() {
       <Users key={index} name={ele.name} email={ele.email} role={ele.role} />
         ))}
       </div>
-      <ul>
-        {data.map((e, index) => (
-          <li key={index}>{e.email}-{e.role}</li> 
-         
-        ))}
-      </ul>
+      
     </>
   );
 }
