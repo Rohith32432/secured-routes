@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+    
+    }
+    .chat-container {
+   width: 400px;
+      margin: 50px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .chat-messages {
+      padding: 10px;
+      overflow-y: scroll;
+      height: 300px;
+    }
+
+    .message {
+      margin-bottom: 10px;
+    }
+
+    .message.sender {
+      text-align: right;
+    }
+
+    .message-bubble {
+      padding: 8px;
+      border-radius: 5px;
+      display: inline-block;
+      max-width: 70%;
+    }
+
+    .message-received {
+      background-color: #e6e6e6;
+    }
+
+    .message-sent {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+
+
+    .chat-input form{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+    }
+    .input-field {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid rgb(128, 128, 128);
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .send-button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-container">
+    <div class="chat-header">
+      Simple Chat
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <!-- Chat messages will be added here dynamically -->
+    </div>
+    <div class="chat-input">
+      <form action="#" id="form">
+      <input type="text" class="input-field" id="messageInput" placeholder="Type a message...">
+      <button class="send-button" type="submit" onclick="sendMessage()">Send</button>
+    </form>
+    <div class="chat-input">
+      <form action="#" id="rform">
+      <input type="text" class="input-field" id="roominput" placeholder="join room">
+      <button class="send-button" type="submit" onclick="sendMessage()">Join</button>
+    </form>
+    </div>
+  </div>
+
+ <script src="scrpit.js" type="module"></script>
+
+</body>
+</html>

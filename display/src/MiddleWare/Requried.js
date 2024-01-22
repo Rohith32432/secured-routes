@@ -9,6 +9,8 @@ export const AdminAuth = () => {
       return<Outlet/>;
     }
   
-    return   <Navigate to="login" /> 
+    return(
+      <> <h1>Not an Admin 😉</h1></>
+    )
   };
   
