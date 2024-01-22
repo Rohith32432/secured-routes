@@ -10,35 +10,37 @@ socket.on('connect', () => {
 });
 
 socket.on('recived', message => {
-    sendMessage(message);
+    console.log(message);
+   crreatemsg(message)
 });
 
 function displaymessage(message) {
     var chatMessages = document.getElementById('chat-messages');
     chatMessages.append(message);
 }
+function crreatemsg(msg){
+    var chatMessages = document.getElementById('chat-messages');
+    var messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', 'sender');
+    var messageBubble = document.createElement('div');
+    messageBubble.classList.add('message-bubble', 'message-sent');
+    messageBubble.textContent = msg;
+    messageDiv.appendChild(messageBubble);
+    chatMessages.appendChild(messageDiv);
+}
 
 function sendMessage(e) {
     e.preventDefault();
     var messageInput = document.getElementById('messageInput');
-    var chatMessages = document.getElementById('chat-messages');
+    var roominput = document.getElementById('roominput');
 
     if (messageInput.value.trim() !== '') {
-        var messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', 'sender');
-
-        var messageBubble = document.createElement('div');
-        messageBubble.classList.add('message-bubble', 'message-sent');
-        messageBubble.textContent = messageInput.value;
-        messageDiv.appendChild(messageBubble);
-        chatMessages.appendChild(messageDiv);
-
-        socket.emit('send', messageInput.value);
-
-        // Clear the input field
+      crreatemsg(messageInput.value)
+        
+        socket.emit('send', messageInput.value,roominput.value);
+        
+        
         messageInput.value = '';
 
-        // Scroll to the bottom of the chat
-        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 }

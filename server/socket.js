@@ -9,12 +9,15 @@ const io = require('socket.io')(3000,{
 app.use(express.static('public'));
 
 io.on('connection', (socket) => {
-    console.log(`A user connected with socket ID: ${socket.id}`);
-    socket.on('send',mess=>{
-        io.emit('recived',mess)
-        console.log(mess);
-    })
-
+    console.log(`${socket.id}`);
+    
+    socket.on('send', (mess, room) => {
+        if (room === '') {
+            socket.broadcast.emit('recived', mess);
+        } else {
+            socket.to(room).emit('recived', mess);
+        }
+    });
 });
 
 app.get('/', (req, res) => {
