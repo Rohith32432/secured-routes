@@ -1,8 +1,9 @@
+const {instrument}=require('@socket.io/admin-ui')
 const express = require('express');
 const app = express();
 const io = require('socket.io')(3000,{
     cors:{
-        origin:['http://localhost:8080']
+        origin:['http://localhost:8080','https://admin.socket.io/']
     }
 });
 
@@ -27,3 +28,5 @@ app.get('/', (req, res) => {
 app.listen(8080, () => {
     console.log('Server listening at http://localhost:8080');
 });
+
+instrument(io,{auth:false})
