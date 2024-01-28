@@ -14,6 +14,7 @@ import LogoutButton from './Auth0/Logoutbtn';
 import Profile from './Auth0/profile';
 import { useAuth0 } from '@auth0/auth0-react';
 import { AdminAuth } from './MiddleWare/Requried';
+import Chart from './components/Admin/Chart';
 function App() {
   const { isLoading, error } = useAuth0();
 
@@ -33,6 +34,7 @@ function App() {
       </Route></Route>
       <Route path='/user' element={<User/>}/>
       <Route path='/login' element={<Login/>}/>
+    <Route path='/stat' element={<Chart/>}/>
      </Routes></Maincontext>
     </div>
   );
