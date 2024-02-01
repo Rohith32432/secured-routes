@@ -52,7 +52,8 @@ function Chart() {
   };
   return (
    <div className="chart">
-   <Bar data={data}/>
+   
+   <Bar data={data} />
    <Pie data={pieData}/>
    <Line data={lineData}/>
    </div>
