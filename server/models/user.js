@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, default: mongoose } = require("mongoose");
 
 const userschema=new Schema({
     name:{type:String},
@@ -8,6 +8,7 @@ const userschema=new Schema({
         type:String,
         default:"user"
     }
+    
 
 })
-module.exports=new model('admin',userschema)
+exports.sample=mongoose.model('user',userschema)

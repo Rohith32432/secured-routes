@@ -8,7 +8,7 @@ const io = require('socket.io')(3000,{
 });
 
 app.use(express.static('public'));
-
+    
 io.on('connection', (socket) => {
     console.log(`${socket.id}`);
     

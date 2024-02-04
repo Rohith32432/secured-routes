@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, default: mongoose } = require("mongoose");
 
 const leadschema=new Schema({
     name:{type:String},
@@ -7,7 +7,10 @@ const leadschema=new Schema({
     role:{
         type:String,
         default:"lead"
-    }
+    },
+    users:[
+        { type: Schema.Types.ObjectId, ref: 'user' }
+    ]
 
 })
-module.exports=new model('admin',leadschema)
+exports.plead= mongoose.model('lead',leadschema)

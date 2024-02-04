@@ -6,19 +6,22 @@ const {users, ROLE}=require('./models/data')
 const {checklogin,roleauth}=require('./basicauth.js')
 const view = require('./middleware/view.js')
 const data=require('./data.js')
-const cors=require('cors')
+const cors=require('cors');
+const { sample } = require('./models/user.js');
+const router = require('./leadroutes/leadRoute.js');
+
 server.use(express.json())
 server.use(cors())
 // server.use(setUser)
 server.use('/view', view)
-// main().catch(err => console.log(err));
+main().catch(err => console.log(err));
      
 
-// async function main() {
+async function main() {
   
-//   await moongose.connect(`mongodb://127.0.0.1:27017/test`);
-//   console.log('DB Connected successfully ');
-// }
+  await moongose.connect(`mongodb://127.0.0.1:27017/test`);
+  console.log('DB Connected successfully ');
+}
 
 //user routes
 server.get('/',(req,res)=>{
@@ -37,6 +40,26 @@ server.post('/validate', (req, res) => {
   res.json(chk);
   console.log(req.body);
 });
+
+
+server.post('/user', async(req,res)=>{
+  const obj=  sample(req.body)
+  obj.save()
+  res.status(201).json('ok')
+})
+server.get('/users',async(req,res)=>{
+  const da= await sample.find()
+  res.send(da)
+})
+server.get('/user/:id',async(req,res)=>{
+  const {id}=req.params
+  const resp= await sample.deleteOne({_id : id})
+  res.send(resp)
+})
+
+server.use('/lead',router)
+
+
 
 
 server.get('/viewall',(req,res)=>{
