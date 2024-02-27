@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Chart as chartjs } from 'chart.js/auto';
 import { Bar, Line, Pie } from 'react-chartjs-2';
-
+import EmojiPicker from 'emoji-picker-react';
+import './style.css'
 function Chart() {
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May'],
@@ -50,12 +51,30 @@ function Chart() {
       },
     ],
   };
+  useEffect(()=>{},[])
+  const [staus,setstatus]=useState(false)
+  function toogle(){
+    staus?setstatus(false):setstatus(true)
+  }
+  function sample(e){
+    console.log(e.emoji);
+  }
   return (
    <div className="chart">
-   
+    <input type="text" name="" id="" />
+    <button onClick={toogle}>s</button>
+    { staus? 
+    
+    <div  className='picker'>
+
+      <EmojiPicker onEmojiClick={sample}/>
+    </div>
+    
+    :''}
    <Bar data={data} />
    <Pie data={pieData}/>
    <Line data={lineData}/>
+
    </div>
   )
 }

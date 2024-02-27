@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function dev() {
+function Developr() {
+
+  const [data,setdata]=useState([])
+  async function getdata(){
+  const data=await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_APIKEY}`)
+  const res=await data.json() 
+ setdata(res.results)
+}
+getdata()
+
   return (
-    <div><h1>devl</h1></div>
+    <div>
+      {
+       
+        data.map((e,i)=>([
+          <div key={i}>
+          
+            <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="sj" />
+            <h2>{e.original_title}</h2>
+            <img src={`https://image.tmdb.org/t/p/w500/${e.poster_path}`} alt="sj" />
+          </div>
+       ] ))
+      }
+    </div>
   )
 }
 
-export default dev
+export default Developr
