@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Developr() {
   const [data, setData] = useState([]);
@@ -20,7 +21,6 @@ function Developr() {
   const handleHover = (i) => {
     setPoster(data[i]);
   };
-console.log(poster);
   return (
     <div>
       <div className="top">
@@ -33,9 +33,12 @@ console.log(poster);
       <button onClick={() => setCount(count + 1)}>click</button>
     <div style={{display:'flex',overflowX:'scroll'}}>
       {data.map((e, i) => (
-        <div key={i} onMouseOver={() => handleHover(i)}>
+        <div key={i} onMouseOver={() => handleHover(i)} >
+          
+          <Link to={`/start/${e.id}`}>
           <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="sj" />
           <h2>{e.original_title}</h2>
+          </Link>
         </div>
       ))}
       </div>

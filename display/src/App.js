@@ -16,6 +16,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { AdminAuth } from './MiddleWare/Requried';
 import Chart from './components/Admin/Chart';
 import Developr from './components/Devloper/dev';
+import Individual from './components/Devloper/individual';
 function App() {
   // const { isLoading, error } = useAuth0();
 
@@ -36,7 +37,10 @@ function App() {
           <Route path='/user' element={<User />} />
           <Route path='/login' element={<Login />} />
           <Route path='/stat' element={<Chart />} />
-          <Route path='/dev'  element={<Developr/>}></Route>
+            <Route path='start/:id' element={<Individual/>}></Route>
+          <Route path='/dev'  element={<Developr/>}>
+          </Route>
+
         </Routes></Maincontext>
     </div>
   );
