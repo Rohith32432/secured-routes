@@ -37,6 +37,7 @@ server.post('/validate', (req, res) => {
   const pwd=req.body.pwd
   const email=req.body.email
   const chk=data.find(user=>user.email===email && user.password==pwd)
+  res.cookie('email',chk.email)
   res.json(chk);
   console.log(req.body);
 });
