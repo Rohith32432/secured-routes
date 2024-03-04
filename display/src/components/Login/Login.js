@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useTest } from '../Maincontext';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 function Login() {
   const [data, setData] = useState({ email: '', pwd: '' });
   const auth = useTest();
+  const cookie=new Cookies()
   console.log(auth.status);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,7 +15,8 @@ function Login() {
     const pwd = form.get('pwd');
 
     setData({ email, pwd });
-
+ 
+    
     
     try {
         const response = await axios.post('http://localhost:32432/validate', data);
