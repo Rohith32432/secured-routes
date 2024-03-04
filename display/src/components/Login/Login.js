@@ -24,6 +24,9 @@ function Login() {
         if(res){
           localStorage.setItem('user', res.email);
           localStorage.setItem('role',res.role)
+          cookie.set('user',res.email,{
+            path:'/login',
+          })
           auth.islogged(true);
         }
 
