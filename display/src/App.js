@@ -17,6 +17,7 @@ import { AdminAuth } from './MiddleWare/Requried';
 import Chart from './components/Admin/Chart';
 import Developr from './components/Devloper/dev';
 import Individual from './components/Devloper/individual';
+import Activity from './Activity';
 function App() {
   // const { isLoading, error } = useAuth0();
 
@@ -26,7 +27,9 @@ function App() {
 
       <Maincontext>
         <Navbar />
+
         <Routes>
+          <Route path='/' element={<Activity/>}/>
           <Route element={<AdminAuth />}>
 
             <Route path='/admin' element={<Admin />}>

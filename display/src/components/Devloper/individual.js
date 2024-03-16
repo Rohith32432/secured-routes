@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { json, useParams } from 'react-router-dom';
 
 function Individual() {
   const { id } = useParams();
@@ -38,6 +38,17 @@ async  function searchclebs(e){
  const response=await data.json()
  setcelbs(response.results)
 }
+const [movies,setmovies]=useState([])
+async  function seaarchmovies(e){
+  let qry=e.target.value;
+  const data= await fetch(`https://api.themoviedb.org/3/search/movie?query=${qry}&include_adult=true&language=en-US&page=1&api_key=${process.env.REACT_APP_APIKEY}`)
+ const response=await data.json()
+ setmovies(response.results)
+}
+
+
+
+
 const [trailer,settrailer]=useState([])
 
  function gettrailer(id){
@@ -71,7 +82,7 @@ console.log(trailer[0]);
                   <li>{m.title}</li>
                   {/* {console.log(m.id)} */}
 
-                  {gettrailer(m.id)}
+                  {/* {gettrailer(m.id)} */}
 
                   <a href={`https://www.youtube.com/watch?v=${1}`}>link</a>
                 </ul>
@@ -80,6 +91,19 @@ console.log(trailer[0]);
           ))
         }
 
+      </div>
+
+      <div className="movies">
+        <input type="text" onInput={seaarchmovies} />
+        <p>
+          {/* {JSON.stringify(movies)} */}
+       {
+        movies.map((e)=>(
+      
+          <img src={`https://image.tmdb.org/t/p/w500/${e.poster_path}`} height={200} alt="" />
+        ))
+       }
+        </p>
       </div>
     </div>
   );
