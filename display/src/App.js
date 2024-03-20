@@ -43,6 +43,7 @@ function App() {
             <Route path='start/:id' element={<Individual/>}></Route>
           <Route path='/dev'  element={<Developr/>}>
           </Route>
+          <Route path='/sc' element={<LoginButton/>}/>
 
         </Routes></Maincontext>
     </div>
