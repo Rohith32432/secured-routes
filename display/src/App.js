@@ -18,6 +18,8 @@ import Chart from './components/Admin/Chart';
 import Developr from './components/Devloper/dev';
 import Individual from './components/Devloper/individual';
 import Activity from './Activity';
+import Test from './MiddleWare/Testing/social-media/Test';
+import Main from './MiddleWare/Testing/Main';
 function App() {
   // const { isLoading, error } = useAuth0();
 
@@ -29,7 +31,7 @@ function App() {
         <Navbar />
 
         <Routes>
-          <Route path='/' element={<Activity/>}/>
+          {/* <Route path='/' element={<Activity/>}/> */}
           <Route element={<AdminAuth />}>
 
             <Route path='/admin' element={<Admin />}>
@@ -40,14 +42,16 @@ function App() {
           <Route path='/user' element={<User />} />
           <Route path='/login' element={<Login />} />
           <Route path='/stat' element={<Chart />} />
-            <Route path='start/:id' element={<Individual/>}></Route>
-          <Route path='/dev'  element={<Developr/>}>
+          <Route path='start/:id' element={<Individual />}></Route>
+          <Route path='/dev' element={<Developr />}>
           </Route>
-          <Route path='/sc' element={<LoginButton/>}/>
 
+          <Route path='/test' element={<Main />}></Route>
+
+          <Route path='/logintest' element={<Test/>} />
         </Routes></Maincontext>
     </div>
   );
-}
+} 
 
 export default App;
