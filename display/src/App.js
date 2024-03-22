@@ -20,6 +20,7 @@ import Individual from './components/Devloper/individual';
 import Activity from './Activity';
 import Test from './MiddleWare/Testing/social-media/Test';
 import Main from './MiddleWare/Testing/Main';
+import ViewallUsers from './MiddleWare/Testing/ViewallUsers';
 function App() {
   // const { isLoading, error } = useAuth0();
 
@@ -38,7 +39,8 @@ function App() {
               <Route path='del' element={<Delall />} />
               <Route path='viewall' element={<Viewall />} />
               <Route path='staus' element={<Status />} />
-            </Route></Route>
+            </Route>
+            </Route>
           <Route path='/user' element={<User />} />
           <Route path='/login' element={<Login />} />
           <Route path='/stat' element={<Chart />} />
@@ -46,9 +48,11 @@ function App() {
           <Route path='/dev' element={<Developr />}>
           </Route>
 
-          <Route path='/test' element={<Main />}></Route>
+          <Route path='/test' element={<Main />}>
+          <Route path='logintest' element={<Test/>} />
+          <Route path='viewall' element={<ViewallUsers/>}/>
+          </Route>
 
-          <Route path='/logintest' element={<Test/>} />
         </Routes></Maincontext>
     </div>
   );

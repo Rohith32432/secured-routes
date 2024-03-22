@@ -9,7 +9,7 @@ const data=require('./data.js')
 const cors=require('cors');
 const { sample } = require('./models/user.js');
 const router = require('./leadroutes/leadRoute.js');
-
+const userroutes=require('./leadroutes/UserRoutes.js')
 server.use(express.json())
 server.use(cors())
 // server.use(setUser)
@@ -66,6 +66,11 @@ server.use('/lead',router)
 server.get('/viewall',(req,res)=>{
   res.send(data)
 })
+
+
+server.use('/test',userroutes)
+
+
 
 // function setUser(req, res, next) {
 //   const userId = req.body.userid

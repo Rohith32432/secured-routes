@@ -4,7 +4,7 @@ import { useTest } from "../components/Maincontext"
 export const AdminAuth = () => {
     const auth=useTest()
     const userRole = localStorage.getItem('role');
-  
+  console.log(userRole);
     if (auth.status && userRole=='Admin') {
       return<Outlet/>;
     }

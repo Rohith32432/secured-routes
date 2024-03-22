@@ -46,7 +46,7 @@ function Navbar() {
           </ul>
         </li>
            <li className="nav-item">
-        <Link className="nav-link active" to="/sm">sm</Link>     
+        <Link className="nav-link active" to="/test">Sampling</Link>     
            </li>
       </ul>
       <form className="d-flex">
